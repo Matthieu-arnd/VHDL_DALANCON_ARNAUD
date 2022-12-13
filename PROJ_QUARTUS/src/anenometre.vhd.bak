@@ -1,0 +1,113 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity anenometre is
+    generic (
+        nb_bits : integer := 8
+    );
+    port (
+        arst : in std_logic;
+        clk : in std_logic;
+        vent : in std_logic;
+        freq_vent : out std_logic_vector(7 downto 0);
+        continu : in std_logic;
+        start_stop : in std_logic;
+        data_valid: out std_logic
+    );
+end entity anenometre;
+
+architecture rtl of anenometre is
+
+    signal fm : std_logic;
+    signal q_counter : std_logic_vector(7 downto 0);
+    signal q_pulse : std_logic;
+	 signal q_ou : std_logic;
+    type state_t is (st_a, st_b, st_c, st_d); -- Definition des états
+    signal current_st : state_t;
+    
+begin
+
+    -- Instanciation du trigger (permet de détecter front montant du signal) :
+    trigger_inst : entity work.trigger
+    generic map (
+        C_ASYNC => TRUE
+    )
+    port map (
+        freq_vent_i => vent,
+        clk_i => clk,
+        bool_trigger_o => fm
+    );
+
+    -- Instanciation du compteur (pour compter les fronts montants) : 
+    counter_inst : entity work.counter
+    generic map (
+        N => nb_bits
+    )
+    port map (
+        arst_i => arst,
+        clk_i => clk,
+        srst_i => q_ou,
+        en_i => fm,
+        q_o => q_counter
+    );
+
+    -- Instanciation du générateur d'impulsion (permettant d'annoncer qu'une seconde vient de passer) :
+    gene_impul_inst : entity work.gene_impul
+    generic map (
+        B => 50e6,
+        N => 26
+    )
+    port map (
+        clk_i => clk,
+        arst_i => arst,
+        q_o => q_pulse
+    );
+
+        
+    -- Instanciation du registre à décalage :
+    registre_inst : entity work.registre
+    generic map (
+        N => nb_bits
+    )
+    port map (
+        clk => clk,
+        arst => arst,
+        E => q_counter,
+        en => q_pulse,
+        Q => freq_vent
+    );
+    
+
+
+    process (arst, clk)
+        begin
+            if arst = '1' then
+            current_st <= st_a;
+            elsif rising_edge(clk) then
+                case current_st is
+                    when st_a =>
+                        if continu = '1' then current_st <= st_c;
+						else current_st <= st_b;
+                    end if;
+                    when st_c =>
+                        if continu = '0' then current_st <= st_b;
+                    end if;
+                    when st_b =>
+                        s
+                        if start_stop = '1' then current_st <= st_d;
+                        elsif continu = '1' then current_st <= st_c;
+                    end if;
+                    when st_d => 
+                        if start_stop = '0' then current_st <= st_b;
+							end if ;
+                    when others =>
+                        current_st <= st_a;
+                     end case;
+            end if;
+   
+end process;
+    data_valid <= '1' when current_st = st_c or current_st = st_d else '0';
+    q_ou <= '1' when current_st = st_b or q_pulse = '1' else '0';
+
+end architecture rtl;

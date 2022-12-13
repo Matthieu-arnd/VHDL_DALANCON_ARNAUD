@@ -1,0 +1,30 @@
+C:/VHDL/BARRE_FRANCHE/PROJ_QUARTUS/src/bascule_d.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/VHDL/BARRE_FRANCHE/PROJ_QUARTUS/src/bascule_d.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity bascule_d
+-- Compiling architecture rtl of bascule_d
+
+} {} {}} C:/VHDL/BARRE_FRANCHE/test_bench/tb_trigger.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/VHDL/BARRE_FRANCHE/test_bench/tb_trigger.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity tb_trigger
+-- Compiling architecture rtl of tb_trigger
+-- Loading entity trigger
+
+} {} {}} C:/VHDL/BARRE_FRANCHE/PROJ_QUARTUS/src/trigger.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/VHDL/BARRE_FRANCHE/PROJ_QUARTUS/src/trigger.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity trigger
+-- Compiling architecture rtl of trigger
+-- Loading entity bascule_d
+
+} {} {}}

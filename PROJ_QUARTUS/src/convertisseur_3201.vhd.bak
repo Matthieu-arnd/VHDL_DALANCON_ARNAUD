@@ -1,0 +1,44 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity convertisseur_3201 is
+  port (
+    clk : in std_logic;
+    arst : in std_logic;
+    data_in : in std_logic_vector(11 downto 0);
+    cs_n : out std_logic;
+    clk_adc : out std_logic;
+    angle_barre : out std_logic_vector(11 downto 0)
+  );
+end convertisseur_3201;
+
+architecture arch of convertisseur_3201 is
+
+    signal sig_srst_counter, freq_1meg : std_logic := '0';
+    signal sig_en_counter : std_logic;
+    signal cpt_clk_adc : std_logic_vector(22 downto 0); -- pour la clock de 1MHz
+
+begin
+
+    -- Instance de "counter" pour générer le 1MHz : 
+
+    gene_impul_inst : entity work.gene_impul
+    generic map (
+        B => 50,
+        N => 26
+    )
+    port map (
+        clk_i => clk,
+        arst_i => arst,
+        q_o => cpt_clk_adc
+    );
+
+    clk_adc <= cpt_clk_adc;
+
+
+  
+    
+end arch ; -- arch
+
+

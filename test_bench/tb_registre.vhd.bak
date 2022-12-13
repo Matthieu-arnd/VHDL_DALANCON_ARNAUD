@@ -1,0 +1,46 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity tb_registre is
+end entity tb_registre;
+
+architecture rtl of tb_registre is
+    constant CLK_PER : time := 20 ns;
+    signal clr : std_logic := '1';
+    signal clk : std_logic := '0';
+    signal d : std_logic_vector(7 downto 0);
+    signal en : std_logic := '0';
+
+    begin
+
+        clk <= not clk after CLK_PER / 2;
+        clr <= '1' after 63 ns;
+        
+        registre_inst : entity work.registre
+        generic map (
+            N => 8
+        )
+        port map (
+            clk => clk,
+            arst => clr,
+            E => d,
+            en => en,
+            Q => open
+        );
+
+        
+        process
+             begin
+                en <= '0'; wait for 10*CLK_PER;
+                en <= '1'; wait for 10*CLK_PER;
+                clr <= '0'; d <= "00000000"; wait for 2*CLK_PER;
+                clr <= '0'; d <= "00000001"; wait for 2*CLK_PER;
+                clr <= '0'; d <= "00000010"; wait for 3*CLK_PER;
+                clr <= '0'; d <= "00000011"; wait for 3*CLK_PER;
+                clr <= '0'; d <= "00000100"; wait for CLK_PER;
+                clr <= '0'; d <= "00000101"; wait for CLK_PER;
+                clr <= '1'; d <= "00000101"; wait for CLK_PER;
+        end process;
+end architecture rtl;
+
+

@@ -1,0 +1,7 @@
+
+State Machine - |anenometre|current_st
+Name current_st.st_d current_st.st_c current_st.st_b current_st.st_a 
+current_st.st_a 0 0 0 0 
+current_st.st_b 0 0 1 1 
+current_st.st_c 0 1 0 1 
+current_st.st_d 1 0 0 1 

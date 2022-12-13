@@ -1,0 +1,435 @@
+|girouette
+arst => counter:counter_inst1.arst_i
+arst => counter:counter_inst2.arst_i
+arst => registre:registre_inst.arst
+clk => counter:counter_inst1.clk_i
+clk => counter:counter_inst2.clk_i
+clk => trigger_re_fe:trigger_re_fe_inst.clk_i
+clk => registre:registre_inst.clk
+vent => counter:counter_inst1.en_i
+vent => trigger_re_fe:trigger_re_fe_inst.freq_vent_i
+dir_vent[0] <= registre:registre_inst.Q[0]
+dir_vent[1] <= registre:registre_inst.Q[1]
+dir_vent[2] <= registre:registre_inst.Q[2]
+dir_vent[3] <= registre:registre_inst.Q[3]
+dir_vent[4] <= registre:registre_inst.Q[4]
+dir_vent[5] <= registre:registre_inst.Q[5]
+dir_vent[6] <= registre:registre_inst.Q[6]
+dir_vent[7] <= registre:registre_inst.Q[7]
+dir_vent[8] <= registre:registre_inst.Q[8]
+dir_vent[9] <= registre:registre_inst.Q[9]
+dir_vent[10] <= registre:registre_inst.Q[10]
+dir_vent[11] <= registre:registre_inst.Q[11]
+dir_vent[12] <= registre:registre_inst.Q[12]
+continu => ~NO_FANOUT~
+start_stop => ~NO_FANOUT~
+data_valid <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|girouette|counter:counter_inst1
+arst_i => q[0].ACLR
+arst_i => q[1].ACLR
+arst_i => q[2].ACLR
+arst_i => q[3].ACLR
+arst_i => q[4].ACLR
+arst_i => q[5].ACLR
+arst_i => q[6].ACLR
+arst_i => q[7].ACLR
+arst_i => q[8].ACLR
+arst_i => q[9].ACLR
+arst_i => q[10].ACLR
+arst_i => q[11].ACLR
+arst_i => q[12].ACLR
+clk_i => q[0].CLK
+clk_i => q[1].CLK
+clk_i => q[2].CLK
+clk_i => q[3].CLK
+clk_i => q[4].CLK
+clk_i => q[5].CLK
+clk_i => q[6].CLK
+clk_i => q[7].CLK
+clk_i => q[8].CLK
+clk_i => q[9].CLK
+clk_i => q[10].CLK
+clk_i => q[11].CLK
+clk_i => q[12].CLK
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+q_o[0] <= q[0].DB_MAX_OUTPUT_PORT_TYPE
+q_o[1] <= q[1].DB_MAX_OUTPUT_PORT_TYPE
+q_o[2] <= q[2].DB_MAX_OUTPUT_PORT_TYPE
+q_o[3] <= q[3].DB_MAX_OUTPUT_PORT_TYPE
+q_o[4] <= q[4].DB_MAX_OUTPUT_PORT_TYPE
+q_o[5] <= q[5].DB_MAX_OUTPUT_PORT_TYPE
+q_o[6] <= q[6].DB_MAX_OUTPUT_PORT_TYPE
+q_o[7] <= q[7].DB_MAX_OUTPUT_PORT_TYPE
+q_o[8] <= q[8].DB_MAX_OUTPUT_PORT_TYPE
+q_o[9] <= q[9].DB_MAX_OUTPUT_PORT_TYPE
+q_o[10] <= q[10].DB_MAX_OUTPUT_PORT_TYPE
+q_o[11] <= q[11].DB_MAX_OUTPUT_PORT_TYPE
+q_o[12] <= q[12].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|girouette|counter:counter_inst2
+arst_i => q[0].ACLR
+arst_i => q[1].ACLR
+arst_i => q[2].ACLR
+arst_i => q[3].ACLR
+arst_i => q[4].ACLR
+arst_i => q[5].ACLR
+arst_i => q[6].ACLR
+arst_i => q[7].ACLR
+arst_i => q[8].ACLR
+arst_i => q[9].ACLR
+arst_i => q[10].ACLR
+arst_i => q[11].ACLR
+arst_i => q[12].ACLR
+clk_i => q[0].CLK
+clk_i => q[1].CLK
+clk_i => q[2].CLK
+clk_i => q[3].CLK
+clk_i => q[4].CLK
+clk_i => q[5].CLK
+clk_i => q[6].CLK
+clk_i => q[7].CLK
+clk_i => q[8].CLK
+clk_i => q[9].CLK
+clk_i => q[10].CLK
+clk_i => q[11].CLK
+clk_i => q[12].CLK
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+srst_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+en_i => q.OUTPUTSELECT
+q_o[0] <= q[0].DB_MAX_OUTPUT_PORT_TYPE
+q_o[1] <= q[1].DB_MAX_OUTPUT_PORT_TYPE
+q_o[2] <= q[2].DB_MAX_OUTPUT_PORT_TYPE
+q_o[3] <= q[3].DB_MAX_OUTPUT_PORT_TYPE
+q_o[4] <= q[4].DB_MAX_OUTPUT_PORT_TYPE
+q_o[5] <= q[5].DB_MAX_OUTPUT_PORT_TYPE
+q_o[6] <= q[6].DB_MAX_OUTPUT_PORT_TYPE
+q_o[7] <= q[7].DB_MAX_OUTPUT_PORT_TYPE
+q_o[8] <= q[8].DB_MAX_OUTPUT_PORT_TYPE
+q_o[9] <= q[9].DB_MAX_OUTPUT_PORT_TYPE
+q_o[10] <= q[10].DB_MAX_OUTPUT_PORT_TYPE
+q_o[11] <= q[11].DB_MAX_OUTPUT_PORT_TYPE
+q_o[12] <= q[12].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|girouette|trigger_re_fe:trigger_re_fe_inst
+freq_vent_i => bascule_d:gen_async:bascule_d_inst.d_i
+clk_i => bascule_d:gen_async:bascule_d_inst.clk_i
+clk_i => bascule_d:delay_bascule_d_inst.clk_i
+fe_o <= fe_o.DB_MAX_OUTPUT_PORT_TYPE
+re_o <= re_o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|girouette|trigger_re_fe:trigger_re_fe_inst|bascule_d:\gen_async:bascule_d_inst
+pre_i => q_n_o~reg0.ACLR
+pre_i => q_o~reg0.PRESET
+pre_i => q_o.IN0
+clr_i => q_o.IN1
+clk_i => q_n_o~reg0.CLK
+clk_i => q_o~reg0.CLK
+d_i => q_o~reg0.DATAIN
+d_i => q_n_o~reg0.DATAIN
+q_o <= q_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q_n_o <= q_n_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|girouette|trigger_re_fe:trigger_re_fe_inst|bascule_d:delay_bascule_d_inst
+pre_i => q_n_o~reg0.ACLR
+pre_i => q_o~reg0.PRESET
+pre_i => q_o.IN0
+clr_i => q_o.IN1
+clk_i => q_n_o~reg0.CLK
+clk_i => q_o~reg0.CLK
+d_i => q_o~reg0.DATAIN
+d_i => q_n_o~reg0.DATAIN
+q_o <= q_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q_n_o <= q_n_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|girouette|registre:registre_inst
+clk => bascule_d_en:GEN_BASCULE_D:0:bascule_d_en_inst.clk_i
+clk => bascule_d_en:GEN_BASCULE_D:1:bascule_d_en_inst.clk_i
+clk => bascule_d_en:GEN_BASCULE_D:2:bascule_d_en_inst.clk_i
+clk => bascule_d_en:GEN_BASCULE_D:3:bascule_d_en_inst.clk_i
+clk => bascule_d_en:GEN_BASCULE_D:4:bascule_d_en_inst.clk_i
+clk => bascule_d_en:GEN_BASCULE_D:5:bascule_d_en_inst.clk_i
+clk => bascule_d_en:GEN_BASCULE_D:6:bascule_d_en_inst.clk_i
+clk => bascule_d_en:GEN_BASCULE_D:7:bascule_d_en_inst.clk_i
+clk => bascule_d_en:GEN_BASCULE_D:8:bascule_d_en_inst.clk_i
+clk => bascule_d_en:GEN_BASCULE_D:9:bascule_d_en_inst.clk_i
+clk => bascule_d_en:GEN_BASCULE_D:10:bascule_d_en_inst.clk_i
+clk => bascule_d_en:GEN_BASCULE_D:11:bascule_d_en_inst.clk_i
+clk => bascule_d_en:GEN_BASCULE_D:12:bascule_d_en_inst.clk_i
+arst => bascule_d_en:GEN_BASCULE_D:0:bascule_d_en_inst.clr_i
+arst => bascule_d_en:GEN_BASCULE_D:1:bascule_d_en_inst.clr_i
+arst => bascule_d_en:GEN_BASCULE_D:2:bascule_d_en_inst.clr_i
+arst => bascule_d_en:GEN_BASCULE_D:3:bascule_d_en_inst.clr_i
+arst => bascule_d_en:GEN_BASCULE_D:4:bascule_d_en_inst.clr_i
+arst => bascule_d_en:GEN_BASCULE_D:5:bascule_d_en_inst.clr_i
+arst => bascule_d_en:GEN_BASCULE_D:6:bascule_d_en_inst.clr_i
+arst => bascule_d_en:GEN_BASCULE_D:7:bascule_d_en_inst.clr_i
+arst => bascule_d_en:GEN_BASCULE_D:8:bascule_d_en_inst.clr_i
+arst => bascule_d_en:GEN_BASCULE_D:9:bascule_d_en_inst.clr_i
+arst => bascule_d_en:GEN_BASCULE_D:10:bascule_d_en_inst.clr_i
+arst => bascule_d_en:GEN_BASCULE_D:11:bascule_d_en_inst.clr_i
+arst => bascule_d_en:GEN_BASCULE_D:12:bascule_d_en_inst.clr_i
+E[0] => bascule_d_en:GEN_BASCULE_D:0:bascule_d_en_inst.d_i
+E[1] => bascule_d_en:GEN_BASCULE_D:1:bascule_d_en_inst.d_i
+E[2] => bascule_d_en:GEN_BASCULE_D:2:bascule_d_en_inst.d_i
+E[3] => bascule_d_en:GEN_BASCULE_D:3:bascule_d_en_inst.d_i
+E[4] => bascule_d_en:GEN_BASCULE_D:4:bascule_d_en_inst.d_i
+E[5] => bascule_d_en:GEN_BASCULE_D:5:bascule_d_en_inst.d_i
+E[6] => bascule_d_en:GEN_BASCULE_D:6:bascule_d_en_inst.d_i
+E[7] => bascule_d_en:GEN_BASCULE_D:7:bascule_d_en_inst.d_i
+E[8] => bascule_d_en:GEN_BASCULE_D:8:bascule_d_en_inst.d_i
+E[9] => bascule_d_en:GEN_BASCULE_D:9:bascule_d_en_inst.d_i
+E[10] => bascule_d_en:GEN_BASCULE_D:10:bascule_d_en_inst.d_i
+E[11] => bascule_d_en:GEN_BASCULE_D:11:bascule_d_en_inst.d_i
+E[12] => bascule_d_en:GEN_BASCULE_D:12:bascule_d_en_inst.d_i
+en => bascule_d_en:GEN_BASCULE_D:0:bascule_d_en_inst.en_i
+en => bascule_d_en:GEN_BASCULE_D:1:bascule_d_en_inst.en_i
+en => bascule_d_en:GEN_BASCULE_D:2:bascule_d_en_inst.en_i
+en => bascule_d_en:GEN_BASCULE_D:3:bascule_d_en_inst.en_i
+en => bascule_d_en:GEN_BASCULE_D:4:bascule_d_en_inst.en_i
+en => bascule_d_en:GEN_BASCULE_D:5:bascule_d_en_inst.en_i
+en => bascule_d_en:GEN_BASCULE_D:6:bascule_d_en_inst.en_i
+en => bascule_d_en:GEN_BASCULE_D:7:bascule_d_en_inst.en_i
+en => bascule_d_en:GEN_BASCULE_D:8:bascule_d_en_inst.en_i
+en => bascule_d_en:GEN_BASCULE_D:9:bascule_d_en_inst.en_i
+en => bascule_d_en:GEN_BASCULE_D:10:bascule_d_en_inst.en_i
+en => bascule_d_en:GEN_BASCULE_D:11:bascule_d_en_inst.en_i
+en => bascule_d_en:GEN_BASCULE_D:12:bascule_d_en_inst.en_i
+Q[0] <= bascule_d_en:GEN_BASCULE_D:0:bascule_d_en_inst.q_o
+Q[1] <= bascule_d_en:GEN_BASCULE_D:1:bascule_d_en_inst.q_o
+Q[2] <= bascule_d_en:GEN_BASCULE_D:2:bascule_d_en_inst.q_o
+Q[3] <= bascule_d_en:GEN_BASCULE_D:3:bascule_d_en_inst.q_o
+Q[4] <= bascule_d_en:GEN_BASCULE_D:4:bascule_d_en_inst.q_o
+Q[5] <= bascule_d_en:GEN_BASCULE_D:5:bascule_d_en_inst.q_o
+Q[6] <= bascule_d_en:GEN_BASCULE_D:6:bascule_d_en_inst.q_o
+Q[7] <= bascule_d_en:GEN_BASCULE_D:7:bascule_d_en_inst.q_o
+Q[8] <= bascule_d_en:GEN_BASCULE_D:8:bascule_d_en_inst.q_o
+Q[9] <= bascule_d_en:GEN_BASCULE_D:9:bascule_d_en_inst.q_o
+Q[10] <= bascule_d_en:GEN_BASCULE_D:10:bascule_d_en_inst.q_o
+Q[11] <= bascule_d_en:GEN_BASCULE_D:11:bascule_d_en_inst.q_o
+Q[12] <= bascule_d_en:GEN_BASCULE_D:12:bascule_d_en_inst.q_o
+
+
+|girouette|registre:registre_inst|bascule_d_en:\GEN_BASCULE_D:0:bascule_d_en_inst
+pre_i => q_o~reg0.PRESET
+pre_i => q_o.IN0
+pre_i => r.ENA
+clr_i => r.OUTPUTSELECT
+clr_i => q_o.IN1
+clk_i => r.CLK
+clk_i => q_o~reg0.CLK
+d_i => q_o.DATAB
+en_i => q_o.OUTPUTSELECT
+q_o <= q_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|girouette|registre:registre_inst|bascule_d_en:\GEN_BASCULE_D:1:bascule_d_en_inst
+pre_i => q_o~reg0.PRESET
+pre_i => q_o.IN0
+pre_i => r.ENA
+clr_i => r.OUTPUTSELECT
+clr_i => q_o.IN1
+clk_i => r.CLK
+clk_i => q_o~reg0.CLK
+d_i => q_o.DATAB
+en_i => q_o.OUTPUTSELECT
+q_o <= q_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|girouette|registre:registre_inst|bascule_d_en:\GEN_BASCULE_D:2:bascule_d_en_inst
+pre_i => q_o~reg0.PRESET
+pre_i => q_o.IN0
+pre_i => r.ENA
+clr_i => r.OUTPUTSELECT
+clr_i => q_o.IN1
+clk_i => r.CLK
+clk_i => q_o~reg0.CLK
+d_i => q_o.DATAB
+en_i => q_o.OUTPUTSELECT
+q_o <= q_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|girouette|registre:registre_inst|bascule_d_en:\GEN_BASCULE_D:3:bascule_d_en_inst
+pre_i => q_o~reg0.PRESET
+pre_i => q_o.IN0
+pre_i => r.ENA
+clr_i => r.OUTPUTSELECT
+clr_i => q_o.IN1
+clk_i => r.CLK
+clk_i => q_o~reg0.CLK
+d_i => q_o.DATAB
+en_i => q_o.OUTPUTSELECT
+q_o <= q_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|girouette|registre:registre_inst|bascule_d_en:\GEN_BASCULE_D:4:bascule_d_en_inst
+pre_i => q_o~reg0.PRESET
+pre_i => q_o.IN0
+pre_i => r.ENA
+clr_i => r.OUTPUTSELECT
+clr_i => q_o.IN1
+clk_i => r.CLK
+clk_i => q_o~reg0.CLK
+d_i => q_o.DATAB
+en_i => q_o.OUTPUTSELECT
+q_o <= q_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|girouette|registre:registre_inst|bascule_d_en:\GEN_BASCULE_D:5:bascule_d_en_inst
+pre_i => q_o~reg0.PRESET
+pre_i => q_o.IN0
+pre_i => r.ENA
+clr_i => r.OUTPUTSELECT
+clr_i => q_o.IN1
+clk_i => r.CLK
+clk_i => q_o~reg0.CLK
+d_i => q_o.DATAB
+en_i => q_o.OUTPUTSELECT
+q_o <= q_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|girouette|registre:registre_inst|bascule_d_en:\GEN_BASCULE_D:6:bascule_d_en_inst
+pre_i => q_o~reg0.PRESET
+pre_i => q_o.IN0
+pre_i => r.ENA
+clr_i => r.OUTPUTSELECT
+clr_i => q_o.IN1
+clk_i => r.CLK
+clk_i => q_o~reg0.CLK
+d_i => q_o.DATAB
+en_i => q_o.OUTPUTSELECT
+q_o <= q_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|girouette|registre:registre_inst|bascule_d_en:\GEN_BASCULE_D:7:bascule_d_en_inst
+pre_i => q_o~reg0.PRESET
+pre_i => q_o.IN0
+pre_i => r.ENA
+clr_i => r.OUTPUTSELECT
+clr_i => q_o.IN1
+clk_i => r.CLK
+clk_i => q_o~reg0.CLK
+d_i => q_o.DATAB
+en_i => q_o.OUTPUTSELECT
+q_o <= q_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|girouette|registre:registre_inst|bascule_d_en:\GEN_BASCULE_D:8:bascule_d_en_inst
+pre_i => q_o~reg0.PRESET
+pre_i => q_o.IN0
+pre_i => r.ENA
+clr_i => r.OUTPUTSELECT
+clr_i => q_o.IN1
+clk_i => r.CLK
+clk_i => q_o~reg0.CLK
+d_i => q_o.DATAB
+en_i => q_o.OUTPUTSELECT
+q_o <= q_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|girouette|registre:registre_inst|bascule_d_en:\GEN_BASCULE_D:9:bascule_d_en_inst
+pre_i => q_o~reg0.PRESET
+pre_i => q_o.IN0
+pre_i => r.ENA
+clr_i => r.OUTPUTSELECT
+clr_i => q_o.IN1
+clk_i => r.CLK
+clk_i => q_o~reg0.CLK
+d_i => q_o.DATAB
+en_i => q_o.OUTPUTSELECT
+q_o <= q_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|girouette|registre:registre_inst|bascule_d_en:\GEN_BASCULE_D:10:bascule_d_en_inst
+pre_i => q_o~reg0.PRESET
+pre_i => q_o.IN0
+pre_i => r.ENA
+clr_i => r.OUTPUTSELECT
+clr_i => q_o.IN1
+clk_i => r.CLK
+clk_i => q_o~reg0.CLK
+d_i => q_o.DATAB
+en_i => q_o.OUTPUTSELECT
+q_o <= q_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|girouette|registre:registre_inst|bascule_d_en:\GEN_BASCULE_D:11:bascule_d_en_inst
+pre_i => q_o~reg0.PRESET
+pre_i => q_o.IN0
+pre_i => r.ENA
+clr_i => r.OUTPUTSELECT
+clr_i => q_o.IN1
+clk_i => r.CLK
+clk_i => q_o~reg0.CLK
+d_i => q_o.DATAB
+en_i => q_o.OUTPUTSELECT
+q_o <= q_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|girouette|registre:registre_inst|bascule_d_en:\GEN_BASCULE_D:12:bascule_d_en_inst
+pre_i => q_o~reg0.PRESET
+pre_i => q_o.IN0
+pre_i => r.ENA
+clr_i => r.OUTPUTSELECT
+clr_i => q_o.IN1
+clk_i => r.CLK
+clk_i => q_o~reg0.CLK
+d_i => q_o.DATAB
+en_i => q_o.OUTPUTSELECT
+q_o <= q_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

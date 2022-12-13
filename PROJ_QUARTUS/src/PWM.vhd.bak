@@ -1,0 +1,53 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity PWM is
+    port (
+        arst_i : in std_logic;
+        clk_i : in std_logic; 
+        freq_i : in std_logic;
+        duty_i : in std_logic;
+        en_pwm_i : in std_logic;
+        pwm_out : out std_logic;
+    );
+end entity PWM;
+
+architecture rtl of PWM is
+
+    signal compteur : std_logic;
+    signal pwm_on : std_logic;
+    
+    -- PROCESS DIVIDE : 
+        divide : process(clk_i, arst_i)
+            begin
+                if en_pwm_i = '0' then
+                    compteur <= (others => '0');
+                elsif clk_i'event and clk_i = '1' then
+                    if en_pwm_i = '1' then
+                        if compteur >= freq_i then
+                                compteur <= (other => '0');
+                        else
+                                compteur <= compteur + 1;
+                        end if;
+                    end if;
+            end if;
+        end process divide;
+  
+    -- PROCESS COMPARE : 
+       compare : process(clk_i, arst_i)
+            begin 
+                if en_pwm_i = '0' then
+                    compteur <= (others => '0');
+                elsif clk_i'event and clk_i = '1' then
+                    if compteur >= duty then
+                        pwm_on <= '0';
+                    elsif compteur = '0' then
+                        pwm_on <= '1';
+                    end if;
+                end if;
+            end process compare;
+       
+        pwm_out <= pwm_on and en_pwm_i;
+        
+    end architecture rtl;

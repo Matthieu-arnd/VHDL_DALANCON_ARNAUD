@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sat Dec 10 23:27:34 2022
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : trigger
+Top-level Entity Name : girouette
+Family : Cyclone IV E
+Total logic elements : 740
+    Total combinational functions : 510
+    Dedicated logic registers : 536
+Total registers : 536
+Total pins : 19
+Total virtual pins : 0
+Total memory bits : 1,280
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
